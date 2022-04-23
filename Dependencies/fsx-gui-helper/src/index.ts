@@ -86,7 +86,7 @@ const server = http.createServer(async (req, res) => {
     if (!operation)
         return doError('No command given.')
 
-    if (!'upload,download,cp,rm,mv,ls,save,get-headers,set-header,get-dir-tree,get-file-tree,exists'.split(',').includes(operation))
+    if (!'upload,download,cp,rm,mv,ls,save,get-headers,set-header,get-dir-tree,get-file-tree,exists,upload-entry'.split(',').includes(operation))
         return doError(`Invalid command: ${operation}`)
     
     if (operation === 'download') {
@@ -370,6 +370,19 @@ const server = http.createServer(async (req, res) => {
         fileSystem.header.set(key, value)
 
         doResponse([])
+    }
+
+    if (operation === "upload-entry") {
+        const { remotePath } = Utils.parseRemotePath(operand1)
+        const fileSystem = await openFileSystem()
+        const entry = fileSystem.getEntry(remotePath)
+
+        if (!entry)
+            return doError(`upload-entry: Entry ${remotePath} doesn't exist.`)
+
+        const shareLink = await fileSystem.uploadFileEntry(entry)
+
+        doResponse([[ shareLink ]])
     }
     
     if (operation === 'save') {

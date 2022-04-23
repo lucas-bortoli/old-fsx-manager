@@ -8,7 +8,7 @@
         "run": "node dist/index.js"
     },
     "dependencies": {
-        "@lucas-bortoli/libdiscord-fs": "^2.4.0"
+        "@lucas-bortoli/libdiscord-fs": "^2.5.0"
     },
     "devDependencies": {
         "@types/node": "^17.0.21",
