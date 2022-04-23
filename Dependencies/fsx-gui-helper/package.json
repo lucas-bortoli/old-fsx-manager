@@ -1,0 +1,18 @@
+{
+    "name": "fsx-gui-helper",
+    "author": "Lucas Bortoli",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && ncc build dist_tsc/index.js -o dist/",
+        "run": "node dist/index.js"
+    },
+    "dependencies": {
+        "@lucas-bortoli/libdiscord-fs": "^2.4.0"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.21",
+        "@vercel/ncc": "^0.33.4",
+        "typescript": "^4.6.2"
+    }
+}

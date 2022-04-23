@@ -1,0 +1,6 @@
+.env
+*.fsx*
+node_modules/
+dist_tsc/
+dist/
+*.img*
