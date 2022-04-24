@@ -82,5 +82,29 @@ namespace fsxGUI.Properties {
                 this["WebhookURL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileSharingServer {
+            get {
+                return ((string)(this["FileSharingServer"]));
+            }
+            set {
+                this["FileSharingServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnableFileSharing {
+            get {
+                return ((bool)(this["EnableFileSharing"]));
+            }
+            set {
+                this["EnableFileSharing"] = value;
+            }
+        }
     }
 }

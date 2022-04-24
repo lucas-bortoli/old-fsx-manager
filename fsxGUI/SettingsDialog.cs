@@ -28,6 +28,10 @@ namespace fsxGUI
             textBox1.Text = settings.DataFileLocation;
             textBox2.Text = settings.DownloadsFolder;
             webhookTextbox.Text = settings.WebhookURL;
+            enableFileSharing.Checked = settings.EnableFileSharing;
+            fileSharingServer.Text = settings.FileSharingServer;
+
+            fileSharingServer.ReadOnly = !enableFileSharing.Checked;
         }
 
         private void SaveToFile(string targetPath)
@@ -42,6 +46,8 @@ namespace fsxGUI
                 sw.WriteLine($"DataFileLocation={settings.DataFileLocation}");
                 sw.WriteLine($"DownloadsFolder={settings.DownloadsFolder}");
                 sw.WriteLine($"WebhookURL={settings.WebhookURL}");
+                sw.WriteLine($"EnableFileSharing={settings.EnableFileSharing}");
+                sw.WriteLine($"FileSharingServer={settings.FileSharingServer}");
                 sw.Close();
             }
         }
@@ -82,6 +88,12 @@ namespace fsxGUI
                         case "WebhookURL":
                             settings.WebhookURL = value;
                             break;
+                        case "EnableFileSharing":
+                            settings.EnableFileSharing = bool.Parse(value);
+                            break;
+                        case "FileSharingServer":
+                            settings.FileSharingServer = value;
+                            break;
                     }
                 }
 
@@ -99,6 +111,8 @@ namespace fsxGUI
             settings.DataFileLocation = textBox1.Text;
             settings.DownloadsFolder = textBox2.Text;
             settings.WebhookURL = webhookTextbox.Text;
+            settings.EnableFileSharing = enableFileSharing.Checked;
+            settings.FileSharingServer = fileSharingServer.Text;
             settings.Save();
             this.DialogResult = DialogResult.OK;
         }
@@ -189,6 +203,11 @@ namespace fsxGUI
                 Application.Restart();
                 Environment.Exit(0);
             }
+        }
+
+        private void enableFileSharing_CheckedChanged(object sender, EventArgs e)
+        {
+            fileSharingServer.ReadOnly = !enableFileSharing.Checked;
         }
     }
 }

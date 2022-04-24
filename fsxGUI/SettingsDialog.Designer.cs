@@ -60,6 +60,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.exportSettingsFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importSettingsFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.fileSharingServer = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.enableFileSharing = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -70,6 +75,7 @@
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -242,6 +248,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -393,6 +400,56 @@
             this.importSettingsFileDialog.Filter = "Exported settings|*.ini";
             this.importSettingsFileDialog.Title = "Import settings from a file";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.enableFileSharing);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.fileSharingServer);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Location = new System.Drawing.Point(6, 82);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(365, 137);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "File sharing";
+            // 
+            // fileSharingServer
+            // 
+            this.fileSharingServer.Location = new System.Drawing.Point(6, 84);
+            this.fileSharingServer.Name = "fileSharingServer";
+            this.fileSharingServer.Size = new System.Drawing.Size(353, 23);
+            this.fileSharingServer.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(352, 30);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Files shared with the \"share files\" function can be downloaded via\r\nthe following" +
+    " server link:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(347, 15);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "File IDs are added to the end of the server link when sharing files.";
+            // 
+            // enableFileSharing
+            // 
+            this.enableFileSharing.AutoSize = true;
+            this.enableFileSharing.Location = new System.Drawing.Point(6, 22);
+            this.enableFileSharing.Name = "enableFileSharing";
+            this.enableFileSharing.Size = new System.Drawing.Size(122, 19);
+            this.enableFileSharing.TabIndex = 6;
+            this.enableFileSharing.Text = "Enable file sharing";
+            this.enableFileSharing.UseVisualStyleBackColor = true;
+            this.enableFileSharing.CheckedChanged += new System.EventHandler(this.enableFileSharing_CheckedChanged);
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -425,6 +482,8 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -463,5 +522,10 @@
         private SaveFileDialog exportSettingsFileDialog;
         private Button button7;
         private OpenFileDialog importSettingsFileDialog;
+        private GroupBox groupBox6;
+        private CheckBox enableFileSharing;
+        private Label label6;
+        private TextBox fileSharingServer;
+        private Label label7;
     }
 }

@@ -380,8 +380,11 @@ namespace fsxGUI
             renameListViewContextMenu.Enabled = listView1.SelectedItems.Count == 1 && !listViewHasSelectedParentDir;
             downloadToolStripMenuItem.Enabled =
                 !listViewHasSelectedParentDir &&
-                listView1.SelectedItems.Count >= 1; /*&&
-                listView1.SelectedItems.Cast<ListViewItem>().ToList().Find(i => string.Equals(i.Tag, "directory")) == null);*/
+                listView1.SelectedItems.Count >= 1;
+            shareSelectedFilesToolStripMenuItem.Enabled =
+                !listViewHasSelectedParentDir &&
+                listView1.SelectedItems.Count >= 1 &&
+                Properties.Settings.Default.EnableFileSharing;
 
             deleteToolStripMenuItem.Enabled = listView1.SelectedItems.Count > 0 && !listViewHasSelectedParentDir;
 
@@ -512,6 +515,7 @@ namespace fsxGUI
                     var path = Utils.fsxJoinAndResolvePath(cwd, file.Name);
                     filePaths.Add(path);
                     fileSizes.Add(file.Size);
+                    Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
                     Debug.WriteLine("Added file to queue: " + path);
                 } else if (entry is FsxDirectory dir)
                 {
@@ -521,6 +525,7 @@ namespace fsxGUI
                         var path = Utils.fsxJoinAndResolvePath(cwd, dir.Name, subfilePath);
                         filePaths.Add(path);
                         fileSizes.Add(subfileSize);
+                        Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
                         Debug.WriteLine("Added subfile to queue: " + path);
                     }
                 }
@@ -865,6 +870,67 @@ namespace fsxGUI
         private void sysTrayIcon_Click(object sender, EventArgs e)
         {
             this.Activate();
+        }
+
+        private async void shareSelectedFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<string> filePaths = new List<string>();
+            List<long> fileSizes = new List<long>();
+
+            // Get file entries from a list of selected items in cwd.
+            var entriesInCwd = await fsx.readDirectory(cwd);
+
+            foreach (ListViewItem selItem in listView1.SelectedItems)
+            {
+                var entry = entriesInCwd.Find(e =>
+                {
+                    // Need to cast to their respective types before comparing (even though they both share
+                    // the "Name" field), or else the string comparision will always be False.
+                    if (e is FsxDirectory dir)
+                        return string.Equals(dir.Name, selItem.Text) && !string.Equals(dir.Name, "..");
+                    else if (e is FsxFile file)
+                        return string.Equals(file.Name, selItem.Text);
+
+                    return false;
+                });
+
+                // If the file/dir doesn't exist in the cwd, then it's probably a race condition. Don't try to
+                // download it.
+                if (entry == null)
+                    continue;
+
+                if (entry is FsxFile file)
+                {
+                    var path = Utils.fsxJoinAndResolvePath(cwd, file.Name);
+                    filePaths.Add(path);
+                    fileSizes.Add(file.Size);
+                    Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
+                    Debug.WriteLine("Added file to list: " + path);
+                }
+                else if (entry is FsxDirectory dir)
+                {
+                    // Get all files in that directory
+                    foreach (var (subfilePath, subfileSize) in await fsx.getFileTree(Utils.fsxJoinAndResolvePath(cwd, dir.Name)))
+                    {
+                        var path = Utils.fsxJoinAndResolvePath(cwd, dir.Name, subfilePath);
+                        filePaths.Add(path);
+                        fileSizes.Add(subfileSize);
+                        Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
+                        Debug.WriteLine("Added subfile to list: " + path);
+                    }
+                }
+            }
+
+            if (filePaths.Count < 1)
+            {
+                MessageBox.Show("There are no items to be shared.", "Can't share", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var downloadDialog = new ShareDialog(fsx, listView1.SmallImageList, filePaths.ToArray(), fileSizes.ToArray(), cwd))
+            {
+                downloadDialog.ShowDialog();
+            }
         }
     }
 }

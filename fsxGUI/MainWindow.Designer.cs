@@ -46,6 +46,8 @@
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadFilesHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.shareSelectedFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.newDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameListViewContextMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +65,6 @@
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shareFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -234,6 +235,8 @@
             this.downloadToolStripMenuItem,
             this.uploadFilesHereToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.shareSelectedFilesToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.newDirectoryToolStripMenuItem,
             this.renameListViewContextMenu,
             this.deleteToolStripMenuItem,
@@ -241,7 +244,7 @@
             this.cutToolStripMenuItem,
             this.pasteToolStripMenuItem});
             this.fileListContextMenu.Name = "fileListContextMenuStrip";
-            this.fileListContextMenu.Size = new System.Drawing.Size(202, 186);
+            this.fileListContextMenu.Size = new System.Drawing.Size(202, 214);
             this.fileListContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.fileListContextMenu_Opening);
             // 
             // downloadToolStripMenuItem
@@ -264,6 +267,19 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(198, 6);
+            // 
+            // shareSelectedFilesToolStripMenuItem
+            // 
+            this.shareSelectedFilesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("shareSelectedFilesToolStripMenuItem.Image")));
+            this.shareSelectedFilesToolStripMenuItem.Name = "shareSelectedFilesToolStripMenuItem";
+            this.shareSelectedFilesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.shareSelectedFilesToolStripMenuItem.Text = "Share selected files";
+            this.shareSelectedFilesToolStripMenuItem.Click += new System.EventHandler(this.shareSelectedFilesToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 6);
             // 
             // newDirectoryToolStripMenuItem
             // 
@@ -401,8 +417,7 @@
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createDirectoryToolStripMenuItem,
-            this.uploadFilesToolStripMenuItem,
-            this.shareFilesToolStripMenuItem});
+            this.uploadFilesToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 28);
@@ -424,13 +439,6 @@
             this.uploadFilesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.uploadFilesToolStripMenuItem.Text = "Upload files";
             this.uploadFilesToolStripMenuItem.Click += new System.EventHandler(this.uploadFilesToolStripMenuItem_Click);
-            // 
-            // shareFilesToolStripMenuItem
-            // 
-            this.shareFilesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("shareFilesToolStripMenuItem.Image")));
-            this.shareFilesToolStripMenuItem.Name = "shareFilesToolStripMenuItem";
-            this.shareFilesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.shareFilesToolStripMenuItem.Text = "Share files";
             // 
             // viewToolStripMenuItem
             // 
@@ -712,7 +720,6 @@
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem uploadFilesHereToolStripMenuItem;
         private ToolStripMenuItem filesystemPropertiesToolStripMenuItem;
-        private ToolStripMenuItem shareFilesToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem2;
         private ToolStripMenuItem sidePaneToolStripMenuItem;
         private ToolStripMenuItem largeIconsToolStripMenuItem;
@@ -720,5 +727,7 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem showCurrentFolderPathOnStatusBarToolStripMenuItem;
         public NotifyIcon sysTrayIcon;
+        private ToolStripMenuItem shareSelectedFilesToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem3;
     }
 }

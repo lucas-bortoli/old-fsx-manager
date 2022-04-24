@@ -2,9 +2,19 @@ import * as fsp from 'fs/promises'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as pathp from 'path/posix'
-import FileSystem, { Directory, File } from '@lucas-bortoli/libdiscord-fs'
+import FileSystem, { Directory, Entry, File } from '@lucas-bortoli/libdiscord-fs'
 import Utils from './utils.js'
 import * as http from 'http'
+
+const EncodeURLPointer = (link) => {
+    return link
+        .replace('https://cdn.discordapp.com/attachments/', '')
+        .replace('/entry', '')
+        .replaceAll('/', '.')
+        .split('')
+        .reverse()
+        .join('')
+}
 
 let fileSystem: FileSystem = null;
 
@@ -373,16 +383,31 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (operation === "upload-entry") {
-        const { remotePath } = Utils.parseRemotePath(operand1)
         const fileSystem = await openFileSystem()
-        const entry = fileSystem.getEntry(remotePath)
 
-        if (!entry)
-            return doError(`upload-entry: Entry ${remotePath} doesn't exist.`)
+        if (argsWithoutFlags.length <= 3)
+            return doError("upload-entry: Not enough arguments")
 
-        const shareLink = await fileSystem.uploadFileEntry(entry)
+        const uploadName = argsWithoutFlags[1]
+        const uploadDesc = argsWithoutFlags[2]
 
-        doResponse([[ shareLink ]])
+        const entryUploadData: { entryName: string, entry: Entry }[] = []
+
+        for (const entryPath of argsWithoutFlags.slice(3)) {
+            const entry = fileSystem.getEntry(entryPath)
+
+            if (!entry)
+                return console.warn(`upload-entry: Entry ${entryPath} doesn't exist.`)
+
+            entryUploadData.push({
+                entryName: pathp.basename(entryPath), 
+                entry: fileSystem.getEntry(entryPath)
+            })
+        }
+
+        const shareLink = await fileSystem.uploadFileEntry(entryUploadData, { name: uploadName, description: uploadDesc, uploadDate: Date.now().toString() })
+
+        doResponse([[ EncodeURLPointer(shareLink) ]])
     }
     
     if (operation === 'save') {

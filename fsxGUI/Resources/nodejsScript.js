@@ -1,21 +1,21 @@
 import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
 /******/ var __webpack_modules__ = ({
 
-/***/ 438:
+/***/ 812:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             module.exports =
             {
-                parallel: __nccwpck_require__(631),
-                serial: __nccwpck_require__(974),
-                serialOrdered: __nccwpck_require__(410)
+                parallel: __nccwpck_require__(210),
+                serial: __nccwpck_require__(445),
+                serialOrdered: __nccwpck_require__(578)
             };
 
 
             /***/
 }),
 
-/***/ 945:
+/***/ 700:
 /***/ ((module) => {
 
             // API
@@ -49,10 +49,10 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 362:
+/***/ 794:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var defer = __nccwpck_require__(224);
+            var defer = __nccwpck_require__(295);
 
             // API
             module.exports = async;
@@ -86,7 +86,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 224:
+/***/ 295:
 /***/ ((module) => {
 
             module.exports = defer;
@@ -117,11 +117,11 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 288:
+/***/ 23:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var async = __nccwpck_require__(362)
-                , abort = __nccwpck_require__(945)
+            var async = __nccwpck_require__(794)
+                , abort = __nccwpck_require__(700)
                 ;
 
             // API
@@ -192,7 +192,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 359:
+/***/ 474:
 /***/ ((module) => {
 
             // API
@@ -234,11 +234,11 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 820:
+/***/ 942:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var abort = __nccwpck_require__(945)
-                , async = __nccwpck_require__(362)
+            var abort = __nccwpck_require__(700)
+                , async = __nccwpck_require__(794)
                 ;
 
             // API
@@ -269,12 +269,12 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 631:
+/***/ 210:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var iterate = __nccwpck_require__(288)
-                , initState = __nccwpck_require__(359)
-                , terminator = __nccwpck_require__(820)
+            var iterate = __nccwpck_require__(23)
+                , initState = __nccwpck_require__(474)
+                , terminator = __nccwpck_require__(942)
                 ;
 
             // Public API
@@ -315,10 +315,10 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 974:
+/***/ 445:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var serialOrdered = __nccwpck_require__(410);
+            var serialOrdered = __nccwpck_require__(578);
 
             // Public API
             module.exports = serial;
@@ -339,12 +339,12 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 410:
+/***/ 578:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var iterate = __nccwpck_require__(288)
-                , initState = __nccwpck_require__(359)
-                , terminator = __nccwpck_require__(820)
+            var iterate = __nccwpck_require__(23)
+                , initState = __nccwpck_require__(474)
+                , terminator = __nccwpck_require__(942)
                 ;
 
             // Public API
@@ -416,12 +416,12 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 622:
+/***/ 443:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             var util = __nccwpck_require__(837);
             var Stream = (__nccwpck_require__(781).Stream);
-            var DelayedStream = __nccwpck_require__(146);
+            var DelayedStream = __nccwpck_require__(611);
 
             module.exports = CombinedStream;
             function CombinedStream() {
@@ -632,7 +632,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 146:
+/***/ 611:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             var Stream = (__nccwpck_require__(781).Stream);
@@ -747,7 +747,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 54:
+/***/ 133:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             var debug;
@@ -756,7 +756,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
                 if (!debug) {
                     try {
                         /* eslint global-require: off */
-                        debug = __nccwpck_require__(461)("follow-redirects");
+                        debug = __nccwpck_require__(975)("follow-redirects");
                     }
                     catch (error) { /* */ }
                     if (typeof debug !== "function") {
@@ -770,7 +770,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 420:
+/***/ 707:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             var url = __nccwpck_require__(310);
@@ -779,7 +779,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             var https = __nccwpck_require__(687);
             var Writable = (__nccwpck_require__(781).Writable);
             var assert = __nccwpck_require__(491);
-            var debug = __nccwpck_require__(54);
+            var debug = __nccwpck_require__(133);
 
             // Create handlers that pass events from native requests
             var events = ["abort", "aborted", "connect", "error", "socket", "timeout"];
@@ -1352,10 +1352,10 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 202:
+/***/ 334:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-            var CombinedStream = __nccwpck_require__(622);
+            var CombinedStream = __nccwpck_require__(443);
             var util = __nccwpck_require__(837);
             var path = __nccwpck_require__(17);
             var http = __nccwpck_require__(685);
@@ -1363,9 +1363,9 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             var parseUrl = (__nccwpck_require__(310).parse);
             var fs = __nccwpck_require__(147);
             var Stream = (__nccwpck_require__(781).Stream);
-            var mime = __nccwpck_require__(312);
-            var asynckit = __nccwpck_require__(438);
-            var populate = __nccwpck_require__(981);
+            var mime = __nccwpck_require__(583);
+            var asynckit = __nccwpck_require__(812);
+            var populate = __nccwpck_require__(142);
 
             // Public API
             module.exports = FormData;
@@ -1861,7 +1861,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 981:
+/***/ 142:
 /***/ ((module) => {
 
             // populates missing values
@@ -1878,7 +1878,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 110:
+/***/ 426:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
             /*!
@@ -1898,7 +1898,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 312:
+/***/ 583:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
             /*!
@@ -1915,7 +1915,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
              * @private
              */
 
-            var db = __nccwpck_require__(110)
+            var db = __nccwpck_require__(426)
             var extname = (__nccwpck_require__(17).extname)
 
             /**
@@ -2094,7 +2094,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
             /***/
 }),
 
-/***/ 461:
+/***/ 975:
 /***/ ((module) => {
 
             module.exports = eval("require")("debug");
@@ -2232,9 +2232,9 @@ var __webpack_exports__ = {};
     ;// CONCATENATED MODULE: external "readline"
     const external_readline_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("readline");
     // EXTERNAL MODULE: ./node_modules/follow-redirects/index.js
-    var follow_redirects = __nccwpck_require__(420);
+    var follow_redirects = __nccwpck_require__(707);
     // EXTERNAL MODULE: ./node_modules/form-data/lib/form_data.js
-    var form_data = __nccwpck_require__(202);
+    var form_data = __nccwpck_require__(334);
     ;// CONCATENATED MODULE: ./node_modules/@lucas-bortoli/libdiscord-fs/lib/utils.js
 
     const { https } = follow_redirects;
@@ -2446,7 +2446,7 @@ var __webpack_exports__ = {};
         async _read() {
             // End stream
             if (this.pieceIndex >= this.pieces.length)
-                this.push(null);
+                return this.push(null);
             const chunkUrl = 'https://cdn.discordapp.com/attachments/' + this.pieces[this.pieceIndex];
             let chunk;
             do {
@@ -2668,6 +2668,24 @@ var __webpack_exports__ = {};
                 }
             }
         }
+        /**
+         * Uploads the file entry, as JSON, to the webhook. It can be used for sharing files or directories.
+         * @param entries[].entryName The name of the entry - it is added to the "name" property in the serialized JSON.
+         * @param entries[].entry The entry to be shared.
+         * @param customMetadata Any metadata to be added to the JSON object.
+         * @returns The link to the shared entry.
+         */
+        async uploadFileEntry(entries, customMetadata) {
+            const data = {
+                metadata: customMetadata || {},
+                rootItems: []
+            };
+            for (const $ of entries) {
+                data.rootItems.push(Object.assign({}, { name: $.entryName }, $.entry));
+            }
+            const asBufferData = Buffer.from(JSON.stringify(data), 'utf-8');
+            return await this.webhook.uploadFile('entry', asBufferData);
+        }
     }
 
     ;// CONCATENATED MODULE: ./node_modules/@lucas-bortoli/libdiscord-fs/lib/index.js
@@ -2736,6 +2754,15 @@ var __webpack_exports__ = {};
 
 
 
+    const EncodeURLPointer = (link) => {
+        return link
+            .replace('https://cdn.discordapp.com/attachments/', '')
+            .replace('/entry', '')
+            .replaceAll('/', '.')
+            .split('')
+            .reverse()
+            .join('');
+    };
     let fileSystem = null;
     /**
      * Initializes a filesystem object.
@@ -2793,7 +2820,7 @@ var __webpack_exports__ = {};
         const operand2 = argsWithoutFlags[2];
         if (!operation)
             return doError('No command given.');
-        if (!'upload,download,cp,rm,mv,ls,save,get-headers,set-header,get-dir-tree,get-file-tree,exists'.split(',').includes(operation))
+        if (!'upload,download,cp,rm,mv,ls,save,get-headers,set-header,get-dir-tree,get-file-tree,exists,upload-entry'.split(',').includes(operation))
             return doError(`Invalid command: ${operation}`);
         if (operation === 'download') {
             // Validate remote path parameter
@@ -2993,6 +3020,25 @@ var __webpack_exports__ = {};
             const fileSystem = await openFileSystem();
             fileSystem.header.set(key, value);
             doResponse([]);
+        }
+        if (operation === "upload-entry") {
+            const fileSystem = await openFileSystem();
+            if (argsWithoutFlags.length <= 3)
+                return doError("upload-entry: Not enough arguments");
+            const uploadName = argsWithoutFlags[1];
+            const uploadDesc = argsWithoutFlags[2];
+            const entryUploadData = [];
+            for (const entryPath of argsWithoutFlags.slice(3)) {
+                const entry = fileSystem.getEntry(entryPath);
+                if (!entry)
+                    return console.warn(`upload-entry: Entry ${entryPath} doesn't exist.`);
+                entryUploadData.push({
+                    entryName: posix_namespaceObject.basename(entryPath),
+                    entry: fileSystem.getEntry(entryPath)
+                });
+            }
+            const shareLink = await fileSystem.uploadFileEntry(entryUploadData, { name: uploadName, description: uploadDesc, uploadDate: Date.now().toString() });
+            doResponse([[EncodeURLPointer(shareLink)]]);
         }
         if (operation === 'save') {
             const fileSystem = await openFileSystem();

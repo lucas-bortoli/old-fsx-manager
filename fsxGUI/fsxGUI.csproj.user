@@ -22,6 +22,12 @@
     <Compile Update="SettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ShareDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ShareDialogPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UploadDialog.cs">
       <SubType>Form</SubType>
     </Compile>

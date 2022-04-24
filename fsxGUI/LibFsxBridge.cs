@@ -156,15 +156,23 @@ namespace fsxGUI
             return API_BASE + '/' + query;
         }
 
-        public async Task<string> uploadFile(string localSourceFile, string fsxTargetPath)
+        public async Task<string> shareFiles(string targetFileName, string description, string[] fileList, string rootDir)
         {
             var client = new HttpClient();
-            client.Timeout = TimeSpan.FromDays(14);
-            var fileStream = File.OpenRead(localSourceFile);
-            var reqBodyContents = new StreamContent(fileStream);
-            var request = await client.PostAsync(setupRequestURL(new string[] { "upload", fsxTargetPath }), reqBodyContents);
-            Debug.WriteLine($"File upload status code: {request.StatusCode}");
-            return fsxTargetPath;
+            var args = new List<string>();
+
+            args.Add("upload-entry");
+            args.Add(targetFileName);
+            args.Add(description);
+
+            foreach (var file in fileList) {
+                args.Add(file);
+            }
+
+            var request = await client.GetAsync(setupRequestURL(args.ToArray()));
+            var sharedLink = await request.Content.ReadAsStringAsync();
+
+            return Uri.UnescapeDataString(sharedLink);
         }
 
         public async Task<List<FsxEntry>> readDirectory(string path)
