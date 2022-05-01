@@ -906,18 +906,13 @@ namespace fsxGUI
                     fileSizes.Add(file.Size);
                     Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
                     Debug.WriteLine("Added file to list: " + path);
-                }
-                else if (entry is FsxDirectory dir)
+                } else if (entry is FsxDirectory dir)
                 {
-                    // Get all files in that directory
-                    foreach (var (subfilePath, subfileSize) in await fsx.getFileTree(Utils.fsxJoinAndResolvePath(cwd, dir.Name)))
-                    {
-                        var path = Utils.fsxJoinAndResolvePath(cwd, dir.Name, subfilePath);
-                        filePaths.Add(path);
-                        fileSizes.Add(subfileSize);
-                        Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
-                        Debug.WriteLine("Added subfile to list: " + path);
-                    }
+                    var path = Utils.fsxJoinAndResolvePath(cwd, dir.Name);
+                    filePaths.Add(path);
+                    fileSizes.Add(0);
+                    Utils.LoadFileIcon(path, listView1.SmallImageList, listView1.LargeImageList);
+                    Debug.WriteLine("Added directory to list: " + path);
                 }
             }
 

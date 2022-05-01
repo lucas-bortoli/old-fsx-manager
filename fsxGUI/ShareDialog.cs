@@ -65,6 +65,20 @@ namespace fsxGUI
             }
 
             listView1_Resize(null, null);
+            textBox1.Text = Path.GetFileName(FilePaths[0]);
+            forceExtensionInFilename();
+        }
+
+        private void forceExtensionInFilename()
+        {
+            string ext = Path.GetExtension(textBox1.Text);
+
+            if (FilePaths.Length > 1 || string.IsNullOrWhiteSpace(ext))
+            {
+                ext = ".zip";
+            }
+
+            textBox1.Text = Path.GetFileNameWithoutExtension(textBox1.Text) + ext;
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -84,15 +98,7 @@ namespace fsxGUI
             }
 
             // Add extension if there's none
-            if (string.IsNullOrWhiteSpace(Path.GetExtension(textBox1.Text)))
-            {
-                if (FilePaths.Length == 1)
-                {
-                    textBox1.Text += Path.GetExtension(FilePaths[0]);
-                } else {
-                    textBox1.Text += ".zip";
-                }
-            }
+            forceExtensionInFilename();
 
             var finalUrl = await Fsx.shareFiles(textBox1.Text, textBox2.Text, FilePaths, Cwd);
             
