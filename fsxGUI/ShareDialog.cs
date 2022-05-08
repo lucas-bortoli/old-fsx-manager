@@ -67,6 +67,11 @@ namespace fsxGUI
             listView1_Resize(null, null);
             textBox1.Text = Path.GetFileName(FilePaths[0]);
             forceExtensionInFilename();
+
+            // Enabled, not checked.
+            checkBox1.Enabled = Properties.Settings.Default.EnableNtfyNotification;
+            if (!Properties.Settings.Default.EnableNtfyNotification)
+                checkBox1.Checked = false;
         }
 
         private void forceExtensionInFilename()
@@ -101,6 +106,10 @@ namespace fsxGUI
             forceExtensionInFilename();
 
             var finalUrl = await Fsx.shareFiles(textBox1.Text, textBox2.Text, FilePaths, Cwd);
+
+            // Ping phone
+            if (checkBox1.Checked)
+                await Utils.SendNotification(Properties.Settings.Default.NtfyNotificationTopic, "FSX Manager", "Shared " + FilePaths.Length + " files - " + textBox1.Text + "\n\nClick to open", new string[] { "envelope" }, Properties.Settings.Default.FileSharingServer + finalUrl);
             
             using (var s = new ShareDialogPopup(Properties.Settings.Default.FileSharingServer + finalUrl))
             {

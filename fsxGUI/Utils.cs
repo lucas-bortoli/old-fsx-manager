@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace fsxGUI
@@ -149,6 +150,53 @@ namespace fsxGUI
         public static void OpenWindowsExplorer(string path)
         {
             Process.Start("explorer.exe", path);
+        }
+
+        public static string RandomString(int len)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[len];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
+        }
+
+        public static async Task SendNotification(string topic, string title, string body, string[] tags, string? clickUrl)
+        {
+            string json;
+            
+            if (string.IsNullOrEmpty(clickUrl))
+            {
+                json = JsonSerializer.Serialize(new
+                {
+                    topic = topic,
+                    title = title,
+                    message = body,
+                    tags = tags,
+                });
+            } else
+            {
+                json = JsonSerializer.Serialize(new
+                {
+                    topic = topic,
+                    title = title,
+                    message = body,
+                    tags = tags,
+                    click = clickUrl
+                });
+            }
+
+            using (var client = new HttpClient())
+            {
+                var response = await client.PostAsync(
+                    "https://ntfy.sh",
+                     new StringContent(json, Encoding.UTF8, "application/json"));
+            }
         }
     }
 }

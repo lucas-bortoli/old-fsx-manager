@@ -64,21 +64,21 @@ namespace fsxGUI.Properties {
         ///   Looks up a localized string similar to import { createRequire as __WEBPACK_EXTERNAL_createRequire } from &quot;module&quot;;
         ////******/ var __webpack_modules__ = ({
         ///
-        ////***/ 438:
+        ////***/ 812:
         ////***/ ((module, __unused_webpack_exports, __nccwpck_require__) =&gt; {
         ///
         ///            module.exports =
         ///            {
-        ///                parallel: __nccwpck_require__(631),
-        ///                serial: __nccwpck_require__(974),
-        ///                serialOrdered: __nccwpck_require__(410)
+        ///                parallel: __nccwpck_require__(210),
+        ///                serial: __nccwpck_require__(445),
+        ///                serialOrdered: __nccwpck_require__(578)
         ///            };
         ///
         ///
         ///            /***/
         ///}),
         ///
-        ////***/ 945:
+        ////***/ 700:
         ////***/ ((module) =&gt; {
         ///
         ///            // API
@@ -87,6 +87,16 @@ namespace fsxGUI.Properties {
         internal static string nodejsScript {
             get {
                 return ResourceManager.GetString("nodejsScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Phone_16x {
+            get {
+                object obj = ResourceManager.GetObject("Phone_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

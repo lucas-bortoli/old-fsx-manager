@@ -106,5 +106,29 @@ namespace fsxGUI.Properties {
                 this["EnableFileSharing"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnableNtfyNotification {
+            get {
+                return ((bool)(this["EnableNtfyNotification"]));
+            }
+            set {
+                this["EnableNtfyNotification"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NtfyNotificationTopic {
+            get {
+                return ((string)(this["NtfyNotificationTopic"]));
+            }
+            set {
+                this["NtfyNotificationTopic"] = value;
+            }
+        }
     }
 }

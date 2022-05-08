@@ -30,8 +30,16 @@ namespace fsxGUI
             webhookTextbox.Text = settings.WebhookURL;
             enableFileSharing.Checked = settings.EnableFileSharing;
             fileSharingServer.Text = settings.FileSharingServer;
+            enablePushNotifications.Checked = settings.EnableNtfyNotification;
+            pushNotificationsTopic.Text = settings.NtfyNotificationTopic;
 
             fileSharingServer.ReadOnly = !enableFileSharing.Checked;
+
+            // Generate random notification topic
+            if (string.IsNullOrWhiteSpace(pushNotificationsTopic.Text))
+            {
+                pushNotificationsTopic.Text = Utils.RandomString(8);
+            }
         }
 
         private void SaveToFile(string targetPath)
@@ -48,6 +56,8 @@ namespace fsxGUI
                 sw.WriteLine($"WebhookURL={settings.WebhookURL}");
                 sw.WriteLine($"EnableFileSharing={settings.EnableFileSharing}");
                 sw.WriteLine($"FileSharingServer={settings.FileSharingServer}");
+                sw.WriteLine($"EnableNtfyNotification={settings.EnableNtfyNotification}");
+                sw.WriteLine($"NtfyNotificationTopic={settings.NtfyNotificationTopic}");
                 sw.Close();
             }
         }
@@ -94,6 +104,12 @@ namespace fsxGUI
                         case "FileSharingServer":
                             settings.FileSharingServer = value;
                             break;
+                        case "EnableNtfyNotification":
+                            settings.EnableNtfyNotification = bool.Parse(value);
+                            break;
+                        case "NtfyNotificationTopic":
+                            settings.NtfyNotificationTopic = value;
+                            break;
                     }
                 }
 
@@ -105,6 +121,13 @@ namespace fsxGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (enablePushNotifications.Checked && string.IsNullOrWhiteSpace(pushNotificationsTopic.Text))
+            {
+                MessageBox.Show("The push notification topic must not be empty.");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+
             var settings = Properties.Settings.Default;
             settings.PortNumber = (int)numericUpDown1.Value;
             settings.ListenOnLocalhost = checkBox1.Checked;
@@ -113,6 +136,8 @@ namespace fsxGUI
             settings.WebhookURL = webhookTextbox.Text;
             settings.EnableFileSharing = enableFileSharing.Checked;
             settings.FileSharingServer = fileSharingServer.Text;
+            settings.EnableNtfyNotification = enablePushNotifications.Checked;
+            settings.NtfyNotificationTopic = pushNotificationsTopic.Text;
             settings.Save();
             this.DialogResult = DialogResult.OK;
         }
@@ -208,6 +233,11 @@ namespace fsxGUI
         private void enableFileSharing_CheckedChanged(object sender, EventArgs e)
         {
             fileSharingServer.ReadOnly = !enableFileSharing.Checked;
+        }
+
+        private void enablePushNotifications_CheckedChanged(object sender, EventArgs e)
+        {
+            pushNotificationsTopic.ReadOnly = !enablePushNotifications.Checked;
         }
     }
 }

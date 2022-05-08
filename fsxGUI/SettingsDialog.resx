@@ -57,6 +57,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAASElE
+        QVQ4T2OgOlBUVHwAxP/x4AdQpdgBSJGcnJwkLgyShyrFDtANwMaHKsUOqO4CdDxqwJAzAMSGYbIMwIaJ
+        MYCyzEQaYGAAACcfYxGCNiSzAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>When sharing files with the file sharing feature, you can also send
+a push notification to your phone. This functionality uses ntfy.sh,
+a free and open source push notification service.
+
+You can define the notification topic in the following box:</value>
+  </data>
   <metadata name="dataFileChooser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -69,4 +85,15 @@
   <metadata name="importSettingsFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>531, 17</value>
   </metadata>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAABC0lE
+        QVQ4T2MgFsjXyztAmeQB+Qb5r3L1ck5QLukAaMB/uQa5V0S7RKteiw1oYwxQ4xqgxvtgAxrlgjEMUVRU
+        /A9lwoFsvawNUMMdIN4p1ySXIt8ubyjTIiMt1yIniWEIugEKjQruQAUvZRtkw8EasGCg5iag616Jd4tz
+        oxgg1SYlDJR4Idso649NIxjjcwFQsAhowAqQQqBL7IFemAzknwFraJD/SzAMgIqOAnExEG8B4mdAhV0K
+        9Qp2SvVKYkA+9lhAM+AJ0MZPQLoZ7D8kANT4BUMzCCAbALThI9AAHygXBYA0A9UmQbkIgOKCRvlAKBMr
+        AKr9C2UiALIBhABWtVQxgBQM1UYtwMAAAPrTgmkEwPOiAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

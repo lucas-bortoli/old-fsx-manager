@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label3);
@@ -62,7 +64,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(377, 318);
+            this.panel1.Size = new System.Drawing.Size(377, 346);
             this.panel1.TabIndex = 0;
             // 
             // label4
@@ -152,7 +154,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(257, 328);
+            this.button1.Location = new System.Drawing.Point(257, 356);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 1;
@@ -162,7 +164,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(143, 328);
+            this.button2.Location = new System.Drawing.Point(143, 356);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 23);
             this.button2.TabIndex = 2;
@@ -170,11 +172,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(12, 310);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(224, 19);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Send notification to phone via ntfy.sh";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // ShareDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 363);
+            this.ClientSize = new System.Drawing.Size(377, 391);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -208,5 +222,6 @@
         private Button button2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private CheckBox checkBox1;
     }
 }
